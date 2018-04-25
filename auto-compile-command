@@ -1,0 +1,1 @@
+while inotifywait --recursive --event delete --exclude ".*[^~]$"  ./ ; do docker build -t dnd_royal . && (docker stop test_royal ; docker rm test_royal ; docker run -d --name test_royal -p 8000:8000 dnd_royal) ; done
